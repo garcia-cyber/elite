@@ -38,7 +38,27 @@ def login():
 @app.route('/admin')
 def admin():
       if 'elite' in session:
-            return render_template('html/dark/index.html')
+            #compte le nombres 
+            with sqlite3.connect('elite.db') as con :
+                  #utilisateurs
+                  user = con.cursor()
+                  user.execute('select * from users')
+                  dataUser = len(user.fetchall()) 
+
+                  #candidat()s
+
+                  candidat = con.cursor() 
+                  candidat.execute("select * from candidats where sexeCand = 'M'")
+                  dataCandidat = len(candidat.fetchall()) 
+
+                  #candidate(s)
+
+                  candidate = con.cursor() 
+                  candidate.execute("select * from candidats where sexeCand = 'F'")
+                  dataCandidate = len(candidate.fetchall()) 
+
+
+                  return render_template('html/dark/index.html', dataUser = dataUser , dataCandidat = dataCandidat , dataCandidate = dataCandidate) 
       else:
             return redirect('/')
 

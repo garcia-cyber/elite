@@ -15,4 +15,18 @@ db.execute("""
 # information par defaut 
 #db.execute("insert into users(username,passwordUser) values('elite','elite')")
 
+#creation de la table candidats
+db.execute("""
+    create table if not exists candidats(
+           idcand integer primary key autoincrement ,
+           nomsCandidat varchar(50) , 
+           sexeCand varchar(15),
+           villeCand varchar(30), 
+           adresseCand varchar(50),
+           photoCand longtext ,
+           dateR timestamp default current_timestamp ,
+           userId integer ,
+           foreign key(userId) references users(idUser))
+""")
+
 db.commit()
