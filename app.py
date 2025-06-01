@@ -70,6 +70,18 @@ def admin():
 def deco():
       session.clear()
       return redirect('/') 
+
+
+#
+#
+# enregistrement des candidats
+#
+@app.route('/candidat', methods = ['POST','GET'])
+def candidat():
+      if 'elite' in session:
+            return render_template('html/dark/form-basic.html')
+      else:
+            return redirect('/')
             
 
 

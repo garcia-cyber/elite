@@ -16,10 +16,12 @@ db.execute("""
 #db.execute("insert into users(username,passwordUser) values('elite','elite')")
 
 #creation de la table candidats
+# db.execute('drop table candidats')
 db.execute("""
     create table if not exists candidats(
            idcand integer primary key autoincrement ,
-           nomsCandidat varchar(50) , 
+           nomsCand varchar(50) , 
+           phoneCand varchar(15),
            sexeCand varchar(15),
            villeCand varchar(30), 
            adresseCand varchar(50),
