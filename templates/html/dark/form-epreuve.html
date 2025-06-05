@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename = 'assets/images/favicon.png')}}">
-    <title>formulaire d'enregistrement</title>
+    <title>formulaire d'epreuves candidat(e)</title>
     <!-- Custom CSS -->
     <link href="{{url_for('static',filename = 'dist/css/style.min.css')}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,7 +59,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Formulaire candidat(e)</h4>
+                        <h4 class="page-title">Formulaire  d'epreuves des candidat(e)</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -68,7 +68,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="#">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Formulaire candidat(e)</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Formulaire d'epreuves descandidat(e)</li>
                                 </ol>
                             </nav>
                         </div>
@@ -90,65 +90,18 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Enregistrement</h4>
+                                <h4 class="card-title">Enregistrement d'epreuves des candidat(e)</h4>
                                 
-                                <form class="m-t-30" method="post" enctype="multipart/form-data" action="/candidat">
+                                <form class="m-t-30" method="post" enctype="multipart/form-data" action="/epreuves">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Noms</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" required name="noms" aria-describedby="emailHelp" placeholder="Entrez votre noms">
+                                        <label for="exampleInputEmail1">Epreuves</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" required name="epreuve" aria-describedby="emailHelp" placeholder="Entrez le nom de l'epreuve">
                                         
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">telephone</label>
-                                        <input type="number" class="form-control" id="exampleInputPassword1" required name="phone" placeholder="Entrez le numero de telephone">
+                                        <label for="exampleInputPassword1">cotes</label>
+                                        <input type="number" class="form-control" id="exampleInputPassword1" required name="cotes" placeholder="Entrez le cotes">
                                     </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">sexes</label>
-                                        <select name="sexe" id="" class="form-control">
-                                            <option value="M">Masculin</option>
-                                            <option value="F">Feminin</option>
-
-                                        </select>
-                                    </div>
-
-                                   
-
-
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">communes</label>
-                                        <select name="communes" id="" class="form-control">
-                                            <option value="Limete">Limete</option>
-                                            <option value="Lemba">Lemba</option>
-                                            <option value="masina">masina</option>
-                                            <option value="kinshasa">kinshasa</option>
-                                            <option value="barumbu">barumbu</option>
-
-
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Adresses</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" name="adresse" required placeholder="Entrez l'adresse">
-                                        
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Photo</label>
-                                        <input type="file" class="form-control" id="exampleInputEmail1" name="photo" required placeholder="Entrez votre photo">
-                                        
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">date de naissance</label>
-                                        <input type="date" class="form-control" id="exampleInputEmail1" required name="dn" aria-describedby="emailHelp" >
-                                        
-                                    </div>
-
-
-
-
 
                                     <button type="submit" class="btn btn-primary">Valider</button>
                                 </form>

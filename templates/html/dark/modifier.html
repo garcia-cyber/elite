@@ -92,20 +92,20 @@
                             <div class="card-body">
                                 <h4 class="card-title">Enregistrement</h4>
                                 
-                                <form class="m-t-30" method="post" enctype="multipart/form-data" action="/candidat">
+                                <form class="m-t-30" method="post" enctype="multipart/form-data" action="">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Noms</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" required name="noms" aria-describedby="emailHelp" placeholder="Entrez votre noms">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" required name="noms" aria-describedby="emailHelp" value="{{aff[1]}}" placeholder="Entrez votre noms">
                                         
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">telephone</label>
-                                        <input type="number" class="form-control" id="exampleInputPassword1" required name="phone" placeholder="Entrez le numero de telephone">
+                                        <input type="number" class="form-control" id="exampleInputPassword1" required name="phone" value="{{aff[2]}}" placeholder="Entrez le numero de telephone">
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">sexes</label>
-                                        <select name="sexe" id="" class="form-control">
+                                        <select name="sexe" id="" value="" class="form-control">
                                             <option value="M">Masculin</option>
                                             <option value="F">Feminin</option>
 
@@ -117,7 +117,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">communes</label>
-                                        <select name="communes" id="" class="form-control">
+                                        <select name="communes" id="" value="" class="form-control">
                                             <option value="Limete">Limete</option>
                                             <option value="Lemba">Lemba</option>
                                             <option value="masina">masina</option>
@@ -130,19 +130,19 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Adresses</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" name="adresse" required placeholder="Entrez l'adresse">
+                                        <input type="text" class="form-control" id="exampleInputEmail1" name="adresse" required value="{{aff[5]}}" placeholder="Entrez l'adresse">
                                         
                                     </div>
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="exampleInputEmail1">Photo</label>
-                                        <input type="file" class="form-control" id="exampleInputEmail1" name="photo" required placeholder="Entrez votre photo">
+                                        <input type="file" class="form-control" id="exampleInputEmail1" name="photo" required value="{{aff[6]}}" placeholder="Entrez votre photo">
                                         
-                                    </div>
+                                    </div> -->
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">date de naissance</label>
-                                        <input type="date" class="form-control" id="exampleInputEmail1" required name="dn" aria-describedby="emailHelp" >
+                                        <input type="date" class="form-control" id="exampleInputEmail1" required name="dn" value="{{aff[7]}}" aria-describedby="emailHelp" >
                                         
                                     </div>
 
