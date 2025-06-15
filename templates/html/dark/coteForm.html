@@ -91,11 +91,18 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Enregistrement de cote</h4>
+                                {% with messages = get_flashed_messages() %}
+                                {% if messages %}
+                                    {%for i in messages %}
+                                    <div class="alert alert-danger">{{i}}</div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
                                 
                                 <form class="m-t-30" method="post" enctype="multipart/form-data" action="">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">candidat(e)</label>
-                                        <select name="sexe" id="" class="form-control">
+                                        <select name="candidat" id="" class="form-control">
                                             {% for i in tabcot %}
                                             <option value="{{i[0]}}">{{i[1]}}</option>
                                             {% endfor %}
@@ -107,6 +114,11 @@
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">cotes</label>
                                         <input type="number" class="form-control" id="exampleInputPassword1" required name="cotes" placeholder="Entrez le cotes">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1"></label>
+                                        <input type="hidden" class="form-control" id="exampleInputPassword1" value="{{data[2]}}" required name="max" placeholder="Entrez le cotes">
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Valider</button>

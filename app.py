@@ -91,7 +91,7 @@ def candidat():
                   communes   = request.form['communes']
                   adresse   = request.form['adresse']
                   photo      = request.files['photo']
-                  datedenaissance = request.form['dn']
+                  datedenaissance= request.form['dn']
 
                   pt = os.path.join(app.config['photos'] , photo.filename)
                   photo.save(pt) 
@@ -146,15 +146,15 @@ def modifier(idcand):
               sexe =  request.form['sexe']
               communes = request.form['communes']
               adresse = request.form['adresse']
-            #   photo = request.form['photo']
+              photo = request.files['photo']
               datedenaissance = request.form['dn']
 
-            #   pt = os.path.join(app.config['photos'] , photo.filename)
-            #   photo.save(pt)
+              pt = os.path.join(app.config['photos'] , photo.filename)
+              photo.save(pt)
 
               with sqlite3.connect('elite.db') as con:
                     send = con.cursor()
-                    send.execute('update candidats set nomscand=?,  sexecand=?, communescand=?, adressecand=?, photocand=?, dateN=? where idcand=?',[noms,telephone,sexe,communes,adresse,datedenaissance,idcand])
+                    send.execute('update candidats set nomscand=?, phonecand=?,  sexecand=?, communescand=?, adressecand=?, photocand=?, dateN=? where idcand=?',[noms,telephone,sexe,communes,adresse,photo.filename,datedenaissance,idcand])
                     con.commit()
                     send.close()
                     return redirect('/lstCandidat') 
@@ -300,12 +300,26 @@ def suppEp(idE):
 def cote(idEp):
       if 'elite' in session:
             
-            with sqlite3.connect('elite.db') as con :
-                 cur = con.cursor()
-                 cur.execute('select * from candidats')
-                 vue = cur.fetchall()
+            if request.method == 'POST':
+                  cote = request.form['cotes']
+                  max  = request.form['max'] 
+                  candidat = request.form['candidat'] 
 
-            return render_template('html/dark/coteForm.html',tabcot=vue)
+                  if cote <= max:
+                        flash("ce bon")
+                  else:
+                        flash(f"{cote} est supperieur a {max}")      
+
+            with sqlite3.connect('elite.db') as con :
+                  call = con.cursor()
+                  call.execute("select * from epreuves where idE =?",[idEp])  
+                  data = call.fetchone() 
+
+                  cur = con.cursor()
+                  cur.execute('select * from candidats')
+                  vue = cur.fetchall()  
+
+            return render_template('html/dark/coteForm.html',tabcot=vue, data = data) 
       else:
             return redirect('/')      
 
